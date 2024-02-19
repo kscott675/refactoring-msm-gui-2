@@ -7,7 +7,7 @@ class DirectorsController < ApplicationController
 
   def show
     the_id = params.fetch("path_id")
-    @the_director = Director.find(the_id)
+    @the_director = Director.where({:id => the_id }).at(0)
 
     render({ :template => "director_templates/show" })
   end
